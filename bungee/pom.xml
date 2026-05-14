@@ -15,25 +15,14 @@
 
     <repositories>
         <!--
-          Order matters! Maven queries repos in declared order and stops at the first
-          successful (or fatally-failing) response. CodeMC has occasionally served
-          truncated artifacts for net.md-5:bungeecord-* — putting PaperMC first
-          (which mirrors both Bungee and bStats reliably) avoids that path.
+          PaperMC's Nexus mirrors all the BungeeCord snapshots reliably. bStats is
+          available on Maven Central (always implicit), so we only need PaperMC here.
+          CodeMC was removed because their mirror has been serving truncated artifacts
+          for net.md-5:bungeecord-* — and we don't need them anyway.
         -->
-        <!-- PaperMC: mirrors Bungee snapshots AND bStats reliably -->
         <repository>
             <id>papermc</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
-        </repository>
-        <!-- Sonatype: official source for BungeeCord snapshots -->
-        <repository>
-            <id>bungeecord-repo</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
-        <!-- CodeMC: last-resort fallback for bStats -->
-        <repository>
-            <id>CodeMC</id>
-            <url>https://repo.codemc.org/repository/maven-public</url>
         </repository>
     </repositories>
 
@@ -42,12 +31,11 @@
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
             <!--
-              BungeeCord snapshots can be removed/replaced on Sonatype. 1.20-R0.2-SNAPSHOT
-              has been the most consistently available version. The API surface AdvancedBan
-              uses (LoginEvent, ChatEvent, ProxiedPlayer, ...) is stable across 1.8-1.21,
-              so this works fine on modern BungeeCord installations too.
+              Current Bungee dev snapshot. Stable on PaperMC's mirror.
+              The API surface AdvancedBan uses (LoginEvent, ChatEvent, ProxiedPlayer,
+              PluginMessageEvent, ...) has been unchanged since Bungee 1.8.
             -->
-            <version>1.20-R0.2-SNAPSHOT</version>
+            <version>1.21-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
