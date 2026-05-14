@@ -69,3 +69,4 @@ mvn -B -DskipTests clean package
 - **`Source option 8 is no longer supported`** — you're running Java 8 / 11 / 17. Switch to Java 21.
 - **`Could not find artifact com.velocitypowered:velocity-api:jar:3.3.0-SNAPSHOT`** — the PaperMC repo is unreachable. Check your network or repo configuration.
 - **`Could not find artifact org.spigotmc:spigot-api:jar:1.21.1-R0.1-SNAPSHOT`** — the Spigot snapshot version may have rolled. Bump in `bukkit/pom.xml` to a current snapshot.
+- **`Could not find artifact net.md-5:bungeecord-api:jar:...-SNAPSHOT`** — BungeeCord-Snapshots werden auf Sonatype gelegentlich ersetzt/gelöscht. Lokal hast du das Artefakt evtl. noch im `~/.m2/repository`-Cache, in CI nicht. Fix: in `bungee/pom.xml` die `<version>` auf eine andere Snapshot-Version stellen (z.B. `1.20-R0.2-SNAPSHOT` ist meist verfügbar). Die API-Aufrufe die AdvancedBan nutzt sind seit Bungee 1.8 stabil — die genaue MC-Version egal.
