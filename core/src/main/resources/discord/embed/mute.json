@@ -1,0 +1,10 @@
+{
+  "embed": {
+    "title": "Neue Bestrafung 🤐",
+    "description": "Der Spieler `%player%` wurde von `%staff%` für `%reason%` gemuted.",
+    "color": 1755751,
+    "footer": {
+      "text": "Powered by AdvancedBan"
+    }
+  }
+}

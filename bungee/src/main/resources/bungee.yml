@@ -1,0 +1,6 @@
+name: AdvancedBan
+version: ${project.version}
+main: ${project.groupId}.bungee.BungeeMain
+author: "Leoko (original), Leon (Grafkox_LP) maintainer"
+softDepends: [LuckPerms]
+description: All-in-one punishment system. Fork maintained by Leon (Grafkox_LP).

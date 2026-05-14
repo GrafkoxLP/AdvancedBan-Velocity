@@ -1,0 +1,10 @@
+{
+  "embed": {
+    "title": "IP-Entbannung",
+    "description": "Der IP-Bann von `%player%` wurde von `%staff%` aufgehoben.",
+    "color": 10771377,
+    "footer": {
+      "text": "Powered by AdvancedBan"
+    }
+  }
+}

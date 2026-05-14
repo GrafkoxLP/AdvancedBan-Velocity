@@ -1,0 +1,10 @@
+{
+  "embed": {
+    "title": "Unmute",
+    "description": "Der Spieler `%player%` wurde von `%staff%` entmuted.",
+    "color": 10771377,
+    "footer": {
+      "text": "Powered by AdvancedBan"
+    }
+  }
+}

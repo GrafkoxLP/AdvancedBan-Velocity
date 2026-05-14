@@ -1,0 +1,11 @@
+{
+  "embed": {
+    "title": "Entbannung",
+    "description": "Der Spieler `%player%` wurde von `%staff%` entbannt.",
+    "color": 10771377,
+    "footer": {
+      "icon_url": "https://i.imgur.com/JhEluGV.png",
+      "text": "Bot made by @grafkox_lp"
+    }
+  }
+}

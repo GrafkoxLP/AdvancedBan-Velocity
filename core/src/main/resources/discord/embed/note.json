@@ -1,0 +1,10 @@
+{
+  "embed": {
+    "title": "Neue Notiz",
+    "description": "`%staff%` hat eine Notiz zu `%player%` hinzugefügt: `%reason%`",
+    "color": 5540790,
+    "footer": {
+      "text": "Powered by AdvancedBan"
+    }
+  }
+}

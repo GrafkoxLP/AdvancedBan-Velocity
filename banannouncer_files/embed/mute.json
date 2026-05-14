@@ -1,0 +1,11 @@
+{
+  "embed": {
+    "title": "Neue Bestrafung 🤐",
+    "description": "Der Spieler `%player%` wurde von `%staff%` für `%reason%` gemuted.",
+    "color": 1755751,
+    "footer": {
+      "icon_url": "https://i.imgur.com/JhEluGV.png",
+      "text": "Bot made by @grafkox_lp"
+    }
+  }
+}

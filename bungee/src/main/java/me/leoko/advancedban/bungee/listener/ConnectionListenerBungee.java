@@ -1,0 +1,47 @@
+package me.leoko.advancedban.bungee.listener;
+
+import me.leoko.advancedban.Universal;
+import me.leoko.advancedban.bungee.BungeeMain;
+import me.leoko.advancedban.manager.PunishmentManager;
+import me.leoko.advancedban.manager.UUIDManager;
+import net.md_5.bungee.api.event.LoginEvent;
+import net.md_5.bungee.api.event.PlayerDisconnectEvent;
+import net.md_5.bungee.api.plugin.Listener;
+import net.md_5.bungee.event.EventHandler;
+import net.md_5.bungee.event.EventPriority;
+
+/**
+ * Handles login-time ban checks and on-disconnect cache cleanup on BungeeCord.
+ */
+public class ConnectionListenerBungee implements Listener {
+
+    @SuppressWarnings("deprecation")
+    @EventHandler(priority = EventPriority.LOW)
+    public void onConnection(LoginEvent event) {
+        if (event.isCancelled()) return;
+
+        UUIDManager.get().supplyInternUUID(event.getConnection().getName(), event.getConnection().getUniqueId());
+        event.registerIntent((BungeeMain) Universal.get().getMethods().getPlugin());
+        Universal.get().getMethods().runAsync(() -> {
+            String result = Universal.get().callConnection(
+                    event.getConnection().getName(),
+                    event.getConnection().getAddress().getAddress().getHostAddress());
+
+            if (result != null) {
+                event.setCancelled(true);
+                event.setCancelReason(result);
+            }
+
+            event.completeIntent((BungeeMain) Universal.get().getMethods().getPlugin());
+        });
+    }
+
+    @EventHandler
+    public void onDisconnect(PlayerDisconnectEvent event) {
+        Universal.get().getMethods().runAsync(() -> {
+            if (event.getPlayer() != null) {
+                PunishmentManager.get().discard(event.getPlayer().getName());
+            }
+        });
+    }
+}

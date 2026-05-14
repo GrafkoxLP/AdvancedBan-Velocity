@@ -1,0 +1,10 @@
+{
+  "embed": {
+    "title": "Neue Bestrafung",
+    "description": "Der Spieler `%player%` wurde von `%staff%` für `%reason%` gebannt.",
+    "color": 14169911,
+    "footer": {
+      "text": "Powered by AdvancedBan"
+    }
+  }
+}

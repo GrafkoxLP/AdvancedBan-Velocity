@@ -1,0 +1,10 @@
+{
+  "embed": {
+    "title": "Entbannung",
+    "description": "Der Spieler `%player%` wurde von `%staff%` entbannt.",
+    "color": 10771377,
+    "footer": {
+      "text": "Powered by AdvancedBan"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+# =============================================
+#  AdvancedBan Discord Webhook Integration
+# =============================================
+# Format inspired by Discord Ban Announcer:
+# https://www.spigotmc.org/resources/banannouncer-discord.64976/
+#
+# Use a Discord Webhook URL (no bot needed):
+#   Discord channel  ->  Edit channel  ->  Integrations  ->  Webhooks  ->  New Webhook
+#
+# Set webhook-url to "" to fully disable Discord notifications.
+webhook-url: ""
+
+# Per-punishment-type configuration.
+#   "{embed:NAME}" -> file discord/embed/NAME.json is sent as a Discord embed.
+#   "Plain text with %player% etc." -> sent as a plain content message.
+#   "" -> disabled (nothing sent for that type).
+#
+# Note: AdvancedBan has no Jail/Unjail punishment type. Those keys are not
+# present here. You can still create the corresponding embed files but they
+# will not be triggered by AdvancedBan.
+messages:
+  ban:       "{embed:ban}"
+  tempban:   "{embed:tempban}"
+  banip:     "{embed:banip}"
+  tempbanip: "{embed:tempbanip}"
+  kick:      "{embed:kick}"
+  mute:      "{embed:mute}"
+  tempmute:  "{embed:tempmute}"
+  warn:      "{embed:warn}"
+  tempwarn:  "{embed:tempwarn}"
+  note:      "{embed:note}"
+  unban:     "{embed:unban}"
+  unbanip:   "{embed:unbanip}"
+  unmute:    "{embed:unmute}"
+  unwarn:    "{embed:unwarn}"
+  unnote:    "{embed:unnote}"
+
+# Display name shown in Discord for the webhook message.
+username: "AdvancedBan"
+
+# Optional avatar URL for the webhook message. Leave empty to use the
+# default avatar configured on the webhook itself.
+avatar-url: ""
+
+# Name shown when a punishment is issued from the server console.
+console-name: "Console"
+
+# Suffix appended to the staff name when a punishment is automatically
+# revoked because the duration ran out.
+# Example: "X was unbanned by StaffName (Strafe abgelaufen)"
+automatic: "Strafe abgelaufen"
+
+config-version: 1
