@@ -13,29 +13,23 @@
     <artifactId>AdvancedBan-Bungee</artifactId>
     <packaging>jar</packaging>
 
-    <repositories>
-        <!--
-          PaperMC's Nexus mirrors all the BungeeCord snapshots reliably. bStats is
-          available on Maven Central (always implicit), so we only need PaperMC here.
-          CodeMC was removed because their mirror has been serving truncated artifacts
-          for net.md-5:bungeecord-* — and we don't need them anyway.
-        -->
-        <repository>
-            <id>papermc</id>
-            <url>https://repo.papermc.io/repository/maven-public/</url>
-        </repository>
-    </repositories>
+    <!--
+      No custom repositories needed — bungeecord-api now publishes RELEASE versions
+      directly to Maven Central, and Maven Central is implicit. bStats also lives
+      on Central. This avoids the SNAPSHOT roulette and broken third-party mirrors.
+    -->
 
     <dependencies>
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
             <!--
-              Current Bungee dev snapshot. Stable on PaperMC's mirror.
-              The API surface AdvancedBan uses (LoginEvent, ChatEvent, ProxiedPlayer,
-              PluginMessageEvent, ...) has been unchanged since Bungee 1.8.
+              Current released Bungee API. Published to Maven Central as a real release
+              (not a SNAPSHOT), so it never disappears. The API surface AdvancedBan uses
+              (LoginEvent, ChatEvent, ProxiedPlayer, PluginMessageEvent, ...) has been
+              stable since Bungee 1.8.
             -->
-            <version>1.21-R0.1-SNAPSHOT</version>
+            <version>1.21-R0.4</version>
             <scope>provided</scope>
         </dependency>
 
